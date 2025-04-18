@@ -1,9 +1,8 @@
 # Task1---導入模組
 import streamlit as st
 
-from random_response import generate_ai_response
-
-# from core import run_llm  #回答core定義的函式
+# from random_response import generate_ai_response
+from core import run_llm  #回答core定義的函式
 
 # Task2---初始化對話紀錄,創建一個空的聊天紀錄
 if "messages" not in st.session_state:
@@ -58,8 +57,8 @@ with st.form("chat_form", clear_on_submit=True):
         # 使用者訊息：加到對話紀錄API
         st.session_state.messages.append({"role": "user", "content": user_input})
         # 呼叫core.py給出回覆
-        # response = run_llm(user_input)
-        response = generate_ai_response()
+        response = run_llm(user_input)
+        # response = generate_ai_response()
         # 機器人助理加進對話紀錄
         st.session_state.messages.append({"role": "bot", "content": response})
         st.rerun()
