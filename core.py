@@ -22,6 +22,7 @@ prompt = PromptTemplate.from_template(
 )
 
 # 建立簡單的處理鏈
+# 使用 LangChain Expression Language（LCEL）語法建立 Runable Chain
 simple_chain = prompt | llm | StrOutputParser()
 
 # 主函式：輸入一句話 → 回傳分析結果
